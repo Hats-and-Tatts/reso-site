@@ -25,6 +25,10 @@ GitHub Action fails once it's within 60 days of expiring. GitHub turns off
 scheduled workflows in a repo with no activity for 60 days, so keep a calendar
 reminder too.
 
+**When you change `style.css`, bump `?v=` where `index.html` and `404.html`
+link it.** Browsers keep the stylesheet for 4 hours, so without a new
+version, visitors get the new page with the old styles.
+
 To preview it, open `index.html` in a browser, or run any static server here
 (for example `python -m http.server`).
 
