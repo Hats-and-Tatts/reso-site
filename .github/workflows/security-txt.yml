@@ -1,0 +1,32 @@
+# Fails once security.txt is within 60 days of its Expires date, so GitHub
+# emails a warning in time to renew it. Runs weekly and on every change.
+name: security.txt expiry
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "23 7 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  expiry:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Check the Expires date
+        run: |
+          expires=$(sed -n 's/^Expires: *//p' .well-known/security.txt | tr -d '\r')
+          if [ -z "$expires" ]; then
+            echo "::error file=.well-known/security.txt::No Expires field"
+            exit 1
+          fi
+          days=$(( ( $(date -d "$expires" +%s) - $(date +%s) ) / 86400 ))
+          echo "security.txt expires $expires, in $days days"
+          if [ "$days" -lt 60 ]; then
+            echo "::error file=.well-known/security.txt::Expires in $days days. Move Expires on by a year."
+            exit 1
+          fi

@@ -18,7 +18,10 @@ push to `main` publishes.
 analytics, cookies or embeds. `_headers` enforces that with a strict
 Content-Security-Policy, so adding any of them means changing it on purpose.
 
-**`security.txt` expires on 2027-11-20.** Renew it before then.
+**`security.txt` expires on 2027-11-20.** Renew it before then. A weekly
+GitHub Action fails once it's within 60 days of expiring. GitHub turns off
+scheduled workflows in a repo with no activity for 60 days, so keep a calendar
+reminder too.
 
 To preview it, open `index.html` in a browser, or run any static server here
 (for example `python -m http.server`).
