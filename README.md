@@ -13,8 +13,10 @@ push to `main` publishes.
 | `favicon.svg` | Res, used as the icon and on the pages |
 | `.well-known/security.txt` | Where to report security issues ([RFC 9116](https://www.rfc-editor.org/rfc/rfc9116)) |
 | `_headers` | Security headers for Cloudflare Pages |
+| `fonts/` | Baloo 2 for headings, served from this site, with its license |
+| `THIRD-PARTY-NOTICES.md` | Licenses for the Tabler icons and Baloo 2 |
 
-**The site loads nothing from anywhere else**: no scripts, web fonts,
+**The site loads nothing from anywhere else**: no scripts, outside fonts,
 analytics, cookies or embeds. `_headers` enforces that with a strict
 Content-Security-Policy, so adding any of them means changing it on purpose.
 

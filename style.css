@@ -18,6 +18,14 @@
   }
 }
 
+/* Baloo 2 (SIL OFL 1.1, fonts/OFL.txt): the brand display face, headings only. */
+@font-face {
+  font-family: "Baloo 2";
+  src: url("/fonts/baloo-2-latin-700.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
 * { box-sizing: border-box; }
 
 html { background: var(--ground); color: var(--ink); }
@@ -40,9 +48,11 @@ main {
 
 .res { width: 10rem; height: 10rem; border-radius: 50%; }
 
-h1 { font-size: 3.5rem; line-height: 1; margin: 1.5rem 0 0.5rem; }
+h1, .tagline, .soon { font-family: "Baloo 2", system-ui, sans-serif; font-weight: 700; }
 
-.tagline { font-size: 1.5rem; font-weight: 600; margin: 0 0 1.5rem; }
+h1 { font-size: 4rem; line-height: 1; margin: 1.5rem 0 0.25rem; }
+
+.tagline { font-size: 1.75rem; line-height: 1.2; margin: 0 0 1.5rem; }
 
 .soon {
   display: inline-block;
@@ -51,7 +61,7 @@ h1 { font-size: 3.5rem; line-height: 1; margin: 1.5rem 0 0.5rem; }
   border-radius: 999px;
   background: var(--accent);
   color: var(--on-accent);
-  font-weight: 700;
+  font-size: 1.125rem;
 }
 
 footer {
@@ -61,8 +71,33 @@ footer {
   font-size: 0.95rem;
 }
 
-footer nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.25rem; }
+.social { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.25rem; }
 
-footer p { margin: 1rem 0 0; }
+/* 44px tap targets around 24px icons. */
+.social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: var(--muted);
+}
+
+.social a:hover, .social a:focus-visible { color: var(--link); }
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+footer p { margin: 0.75rem 0 0; }
 
 a { color: var(--link); }
+
+a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
