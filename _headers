@@ -1,0 +1,12 @@
+# Cloudflare Pages response headers. The site loads nothing from anywhere
+# else: no scripts, fonts, analytics or embeds.
+/*
+  Content-Security-Policy: default-src 'none'; img-src 'self'; style-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
+  Strict-Transport-Security: max-age=31536000
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Cross-Origin-Opener-Policy: same-origin
+
+/.well-known/security.txt
+  Content-Type: text/plain; charset=utf-8

@@ -1,0 +1,68 @@
+/* Colors are Reso's Grape pack (tokens/color.tokens.json in the app repo). */
+:root {
+  --ground: #F4F0FF;
+  --ink: #1E1442;
+  --muted: #5A5178;
+  --link: #6A3DE8;
+  --accent: #FF7A2F;
+  --on-accent: #1E1442;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ground: #17112E;
+    --ink: #F4F0FF;
+    --muted: #B9B0D9;
+    --link: #A88BFF;
+    --accent: #FF8F4F;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--ground); color: var(--ink); }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font: 1.125rem/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+main {
+  flex: 1;
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 4rem 1rem 2rem;
+  text-align: center;
+}
+
+.res { width: 10rem; height: 10rem; border-radius: 50%; }
+
+h1 { font-size: 3.5rem; line-height: 1; margin: 1.5rem 0 0.5rem; }
+
+.tagline { font-size: 1.5rem; font-weight: 600; margin: 0 0 1.5rem; }
+
+.soon {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 700;
+}
+
+footer {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+footer nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.25rem; }
+
+footer p { margin: 1rem 0 0; }
+
+a { color: var(--link); }
